@@ -298,21 +298,14 @@ p {
   box-sizing: border-box;
 }
 
-.caixa-img {
-  height: 100%;
-  width: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  border: 2px solid gray;
-  border-radius: 2%;
+.caixa-img{
+  width:100%;
+  max-width:350px;
 }
 
-.caixa-img img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
+.caixa-img img{
+  width:100%;
+  height:auto;
 }
 
 /* descrição controlada */
@@ -498,4 +491,239 @@ button:hover {
 .footer-social a:hover {
   transform: scale(1.2);
   color: #38bdf8;
+}
+
+.menu-toggle{
+  display:none;
+  background:none;
+  border:none;
+  font-size:1.5rem;
+  color:white;
+  cursor:pointer;
+}
+
+/* ============================= */
+/* RESPONSIVIDADE */
+/* ============================= */
+
+/* Tablets */
+@media (max-width: 1024px) {
+
+  header div{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+  .ancoras {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .container-padrao {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .projeto-descricao {
+    margin-top: 20px;
+  }
+
+  .sobre-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+  }
+
+  .tec-sobre {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+}
+
+
+@media (max-width:768px){
+
+/* MENU MOBILE */
+
+.menu-toggle{
+  display:block;
+  position:absolute;
+  right:20px;
+  top:20px;
+}
+
+header div{
+  flex-direction:row;
+  justify-content:space-between;
+}
+
+.ancoras{
+  position:absolute;
+  top:80px;
+  left:0;
+  width:100%;
+  background:black;
+  flex-direction:column;
+  align-items:center;
+  gap:20px;
+  padding:20px 0;
+  display:none;
+}
+
+.ancoras.active{
+  display:flex;
+}
+
+
+/* CAPA */
+
+.capa h1{
+  font-size:2rem;
+}
+
+.capa h2{
+  font-size:1.2rem;
+}
+
+.capa p{
+  font-size:0.9rem;
+}
+
+.capa p{
+  font-size:0.9rem;
+  text-align:center;
+  max-width:300px;
+  margin:auto;
+}
+.capa{
+  text-align:center;
+}
+
+
+/* SOBRE */
+
+.sobre-container{
+  flex-direction:column;
+  align-items:center;
+  gap:25px;
+}
+
+.titulo-sub-sobre{
+  width:100%;
+  font-size:0.9rem;
+  padding:18px;
+}
+
+.titulo-sub-sobre p{
+  font-size:0.9rem;
+  text-align:center;
+}
+
+/* TECNOLOGIAS EM COLUNA */
+
+.tec-sobre{
+  width:100%;
+  display:grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap:15px;
+  justify-items:center;
+}
+
+.tec-sobre span{
+  width:100%;
+  max-width:130px;
+  height:90px;
+}
+
+/* PROJETOS */
+
+.container-padrao{
+  flex-direction:column;
+  height:auto;
+}
+
+.container-padrao > div{
+  width:100%;
+  flex-direction:column;
+  align-items:center;
+}
+
+.projeto-descricao{
+  display:none;
+}
+.projeto-descricao p{
+  text-align: justify;
+  line-height: 1.6;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+/* CONTATOS */
+
+#contatos h1{
+  font-size:2rem;
+}
+
+.social-contato{
+  display:flex;
+  justify-content:center;
+  gap:25px;
+}
+
+.contato-item{
+  gap:8px;
+}
+
+.contato-item a{
+  font-size:2rem;
+}
+
+button{
+  font-size:0.8rem;
+  padding:6px 12px;
+}
+
+/* FOOTER */
+
+.footer-container{
+  flex-direction:column;
+  gap:15px;
+  text-align:center;
+}
+
+}
+
+
+/* Celulares pequenos */
+@media (max-width: 480px) {
+
+  .Anderson {
+    font-size: 22px;
+  }
+
+  .matheus {
+    font-size: 22px;
+  }
+
+  .capa h1 {
+    font-size: 24px;
+  }
+
+  .capa h2 {
+    font-size: 18px;
+  }
+
+  .capa p {
+    font-size: 14px;
+  }
+
+  .projeto-info button {
+    width: 100%;
+  }
+
 }
