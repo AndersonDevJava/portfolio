@@ -1,38 +1,61 @@
+/* --- Estilos Globais --- */
 body {
   padding: 0;
   background-color: black;
   margin: 0;
+  font-family: system-ui, -apple-system, sans-serif;
 }
 
-/*Estilizando e contrução header*/
+a {
+  text-decoration: none;
+  color: white;
+}
+a:active, a:focus {
+  border-bottom: 2px solid white;
+}
+a:hover {
+  transition: color 0.5s ease;
+  color: aqua;
+}
+
+/* --- Botões Universais --- */
+button {
+  border: none;
+  border-radius: 25px;
+  padding: 10px 20px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+button:hover {
+  transform: scale(1.05);
+}
+
+/* --- Header --- */
 header {
   background-color: rgb(0, 0, 0);
-  justify-items: center;
-  align-items: center;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 10;
 }
-
-header > h1 {
-  margin: 0;
-}
+header > h1 { margin: 0; }
 header > div {
   display: flex;
   width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
   justify-content: space-between;
   align-items: center;
 }
-
 header > div > nav > ul {
   list-style-type: none;
+  display: flex;
+  gap: 2rem;
 }
-
-header > div > nav > ul > li {
-  font-size: large;
-}
+header > div > nav > ul > li { font-size: large; }
 header > hr {
   width: 100%;
   height: 0.1vh;
@@ -40,38 +63,19 @@ header > hr {
   background-color: gray;
   position: relative;
 }
-
-a {
-  text-decoration: none;
-  color: white;
-}
-
-a:active,
-a:focus {
-  border-bottom: 2px solid white;
-}
-
-a:hover {
-  transition: color 0.5s ease;
-  color: aqua;
-}
-
-header > div > nav > ul {
-  display: flex;
-  gap: 2rem;
-}
-
 .Anderson {
   color: white;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: 'Gill Sans', sans-serif;
+}
+.matheus { color: rgb(0, 191, 255); }
+.menu-toggle {
+  display: none;
+  background: none;
+  font-size: 1.5rem;
+  color: white;
 }
 
-.matheus {
-  color: rgb(0, 191, 255);
-}
-
-/*Imagem de fundo*/
-
+/* --- Seção Início --- */
 main > #inicio {
   position: relative;
   width: 100%;
@@ -80,96 +84,46 @@ main > #inicio {
   justify-content: center;
   align-items: center;
   display: flex;
-  margin-top: -0.5%;
 }
-
 main > #inicio::after {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: 0; left: 0; width: 100%; height: 100%;
   background-color: rgba(0, 0, 0, 0.8);
   z-index: 1;
 }
-
-/*Conteúdo de capa*/
 .capa {
   position: relative;
   z-index: 2;
-  display: grid;
-  place-items: center;
-  grid-template-columns: 1fr;
+  text-align: center;
 }
+.capa > h1, .capa h2, .capa p { color: white; }
+.capa > h2 { font-weight: lighter; margin: 0; }
+.capa > h1 { font-size: 3rem; }
+.capa > p { font-family: 'Courier New', Courier, monospace; }
 
-.capa > h1,
-h2,
-p {
-  color: white;
-}
-
-.capa > h2 {
-  font-weight: lighter;
-  margin: 0;
-}
-
-.capa > h1 {
-  font-size: 3rem;
-}
-
-.capa > p {
-  font-family: 'Courier New', Courier, monospace;
-}
-
-/*Icones*/
-
+/* --- Redes Sociais Capa --- */
 .social {
   display: flex;
   gap: 2rem;
   font-size: large;
   margin-top: 5vh;
+  justify-content: center;
 }
-
-.fa-solid,
-.fa-instagram,
-.fa-whatsapp,
-.fa-github {
+.social i {
   transition: transform 0.3s ease;
 }
-
-.fa-solid:hover,
-.fa-instagram:hover,
-.fa-whatsapp:hover,
-.fa-github:hover {
+.social i:hover {
   transform: translateY(-5px);
 }
+.social > a > .fa-solid:hover { color: red; }
+.social > a > .fa-instagram:hover { color: blueviolet; }
+.social > a > .fa-whatsapp:hover { color: rgb(47, 169, 129); }
+.social > a > .fa-github:hover { color: gray; }
 
-.social > a > .fa-solid:hover {
-  color: red;
-}
-.social > a > .fa-instagram:hover {
-  color: blueviolet;
-}
-.social > a > .fa-whatsapp:hover {
-  color: rgb(47, 169, 129);
-}
-.social > a > .fa-github:hover {
-  color: gray;
-}
-
-/*Sobre mim*/
-
-#sobre {
-  padding: 60px;
-}
-
-#sobre > h1 {
-  color: white;
-  text-align: center;
-  margin-top: 4%;
-}
-
+/* --- Sobre Mim --- */
+#sobre { padding: 60px 20px; }
+#sobre > h1 { color: white; text-align: center; margin-top: 4%; }
 .sobre-container {
   display: flex;
   max-width: 1200px;
@@ -179,9 +133,8 @@ p {
   align-items: flex-start;
   margin-top: 8%;
 }
-
 .titulo-sub-sobre {
-  width: 40%;
+  width: 45%;
   color: #eaeaea;
   line-height: 1.8;
   font-size: 1.05rem;
@@ -191,27 +144,17 @@ p {
   border-radius: 12px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
+.titulo-sub-sobre p { margin-bottom: 15px; font-size: larger; }
+.graduado, .habilidades { color: rgb(0, 191, 255); font-weight: 500; }
 
-.titulo-sub-sobre p {
-  margin-bottom: 15px;
-  font-size: larger;
-}
-
-.graduado,
-.habilidades {
-  color: rgb(0, 191, 255);
-  font-weight: 500;
-}
-
-/* Tecnologias */
+/* --- Tecnologias --- */
 .tec-sobre {
-  width: 40%;
+  width: 45%;
   display: flex;
   flex-wrap: wrap;
   gap: 15px;
   align-content: flex-start;
 }
-
 .tec-sobre span {
   width: 120px;
   height: 110px;
@@ -226,504 +169,183 @@ p {
   background-color: rgba(255, 255, 255, 0.02);
   transition: 0.3s ease;
 }
-
 .tec-sobre span:hover {
   transform: translateY(-6px);
   border-color: rgb(0, 191, 255);
   box-shadow: 0 10px 25px rgba(0, 191, 255, 0.25);
 }
 
-.fa-html5 {
-  color: red;
-  font-size: 3rem;
-}
-
-.fa-css3-alt {
-  color: rgb(17, 0, 255);
-  font-size: 3rem;
-}
-.fa-wind {
-  color: rgb(0, 166, 255);
-  font-size: 3rem;
-}
-
-.fa-js {
-  color: rgb(221, 255, 0);
-  font-size: 3rem;
-}
-
-.fa-wordpress {
-  color: rgb(0, 166, 255);
-  font-size: 3rem;
-}
-
-.fa-java {
-  color: rgb(154, 124, 15);
-  font-size: 3rem;
-}
-
-.fa-node-js {
-  color: rgb(0, 255, 42);
-  font-size: 3rem;
-}
-
-/*Projetos*/
+/* --- Seção Projetos (Layout Padrão Mobile First) --- */
 #projetos {
   color: white;
-  overflow: hidden;
-  padding: 3%;
+  padding: 60px 5%;
   background: linear-gradient(to right, #000000a0, #a7a7ec32);
 }
-
-#projetos > h1 {
-  text-align: center;
-  margin-top: 5%;
-}
+#projetos > h1 { text-align: center; margin-bottom: 40px; }
 
 .container-padrao {
-  height: 35vh;
   display: flex;
-  padding: 2%;
-  box-sizing: border-box;
-  gap: 2%;
-  justify-content: center;
-  align-items: center;
-}
-
-.container-padrao > div {
-  display: flex;
-  gap: 3%;
-  align-items: center;
-  width: 50%;
-  box-sizing: border-box;
-}
-
-.caixa-img{
-  width:100%;
-  max-width:350px;
-}
-
-.caixa-img img{
-  width:100%;
-  height:auto;
-}
-
-/* descrição controlada */
-.container-padrao .projeto-descricao {
-  width: 50%;
   flex-direction: column;
-  box-sizing: border-box;
-  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 20px;
+  border-radius: 16px;
+  margin-bottom: 30px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.projeto-descricao p {
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.projeto-tecnologias {
+.projeto-principal {
+  width: 100%;
   display: flex;
-  gap: 30px;
-}
-
-.projeto-tecnologias {
-  display: flex;
+  flex-direction: column;
   gap: 15px;
-  justify-content: center;
-  align-items: center;
 }
 
-.projeto-tecnologias > i {
-  font-size: 1.8rem;
+.caixa-img { width: 100%; }
+.caixa-img img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
 }
 
-.fa-html5 {
-  color: #e34c26;
-}
-.fa-css3-alt {
-  color: #264de4;
-}
-.fa-wind {
-  color: #38bdf8;
-}
-.fa-js {
-  color: #f7df1e;
-}
-.fa-node-js {
-  color: #68a063;
-}
-
-/*Global*/
-button {
-  background-color: rgb(72, 72, 72);
-  border-radius: 5em;
-  padding: 5%;
-  color: white;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-button:hover {
-  background-color: rgb(100, 100, 100);
-  transform: scale(1.05);
-}
-
-#exibicao-dinamica {
-  border: 2px solid red;
-}
-
-/*CONTATOS*/
-
-#contatos > h1 {
-  color: white;
+.projeto-info {
   text-align: center;
-  margin-top: 5%;
-  font-size: 4rem;
+}
+.projeto-info h2 { margin: 0 0 15px 0; font-size: 1.5rem; }
+
+.botoes-wrapper {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
 }
 
-.social-contato {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  margin-top: 5%;
+.btn-projeto-link { background-color: rgb(72, 72, 72); }
+.btn-projeto-link a { color: white; }
+
+/* Botão de Ver Detalhes (Estilização) */
+.btn-toggle-desc {
+  background-color: rgb(0, 140, 200);
+  font-size: 0.9rem;
+}
+.btn-toggle-desc:hover { background-color: rgb(0, 165, 235); }
+
+/* Injeção Dinâmica via JS */
+.desc-dinamica-mobile {
+  margin-top: 15px;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #ccc;
+  text-align: justify;
+  animation: fadeIn 0.3s ease-in-out;
 }
 
-.contato-item {
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Escondido no Mobile, vira coluna no Desktop */
+.projeto-descricao { display: none; }
+
+/* Cores de Tecnologias unificadas */
+.fa-html5 { color: #e34c26; }
+.fa-css3-alt { color: #264de4; }
+.fa-wind { color: #38bdf8; }
+.fa-js { color: #f7df1e; }
+.fa-node-js { color: #68a063; }
+.fa-wordpress { color: #00a6ff; }
+.fa-java { color: #9a7c0f; }
+
+.projeto-tecnologias {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   gap: 15px;
+  margin-top: 15px;
 }
+.projeto-tecnologias > i { font-size: 1.8rem; }
 
-.contato-item a {
-  font-size: 4rem;
-}
+/* --- Seção Contatos --- */
+#contatos > h1 { color: white; text-align: center; margin-top: 5%; font-size: 3rem; }
+.social-contato { display: flex; justify-content: space-evenly; align-items: center; margin-top: 5%; flex-wrap: wrap; gap: 20px; }
+.contato-item { display: flex; flex-direction: column; align-items: center; gap: 15px; }
+.contato-item a { font-size: 4rem; }
 
-#contatos > .social-contato > .contato-item > a > .fa-instagram {
-  color: #7d077d;
-}
-#contatos > .social-contato > .contato-item > a > .fa-whatsapp {
-  color: #077d1b;
-}
-#contatos > .social-contato > .contato-item > a > .fa-envelope {
-  color: #e3e026;
-}
+#contatos .fa-instagram { color: #7d077d; }
+#contatos .fa-whatsapp { color: #077d1b; }
+#contatos .fa-envelope { color: #e3e026; }
 
-/* Botões */
-button {
-  border: none;
-  border-radius: 25px;
-  padding: 10px 20px;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
+.btn-email { background: linear-gradient(to right, #e3e026, #f7f76b); color: black; }
+.btn-instagram { background: linear-gradient(to right, #7d077d, #d63384); }
+.btn-whatsapp { background: linear-gradient(to right, #077d1b, #25d366); }
 
-button:hover {
-  transform: scale(1.1);
-}
-
-/* Gradientes específicos */
-.btn-email {
-  background: linear-gradient(to right, #e3e026, #f7f76b);
-  color: black;
-}
-
-.btn-instagram {
-  background: linear-gradient(to right, #7d077d, #d63384);
-}
-
-.btn-whatsapp {
-  background: linear-gradient(to right, #077d1b, #25d366);
-}
-
+/* --- Footer --- */
 #footer {
   background: linear-gradient(to right, #000000a0, #a7a7ec32);
   color: white;
   padding: 30px 10%;
   margin-top: 5%;
 }
-
-.footer-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap; /* responsivo */
-}
-
-.footer-info h2 {
-  margin: 0;
-  font-size: 1.8rem;
-}
-
-.footer-info p {
-  margin: 5px 0 0;
-  font-size: 0.9rem;
-}
-
-.footer-links {
-  display: flex;
-  gap: 20px;
-}
-
-.footer-links a {
-  color: white;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.footer-links a:hover {
-  color: #38bdf8;
-}
-
-.footer-social {
-  display: flex;
-  gap: 15px;
-}
-
-.footer-social a {
-  font-size: 1.5rem;
-  color: white;
-  transition: transform 0.3s ease, color 0.3s ease;
-}
-
-.footer-social a:hover {
-  transform: scale(1.2);
-  color: #38bdf8;
-}
-
-.menu-toggle{
-  display:none;
-  background:none;
-  border:none;
-  font-size:1.5rem;
-  color:white;
-  cursor:pointer;
-}
+.footer-container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+.footer-info h2 { margin: 0; font-size: 1.8rem; }
+.footer-info p { margin: 5px 0 0; font-size: 0.9rem; }
+.footer-links { display: flex; gap: 20px; }
+.footer-links a:hover { color: #38bdf8; }
+.footer-social { display: flex; gap: 15px; }
+.footer-social a { font-size: 1.5rem; color: white; transition: transform 0.3s ease; }
+.footer-social a:hover { transform: scale(1.2); color: #38bdf8; }
 
 /* ============================= */
-/* RESPONSIVIDADE */
+/* MEDIA QUERIES           */
 /* ============================= */
 
-/* Tablets */
 @media (max-width: 1024px) {
-
-  header div{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+  .sobre-container { flex-direction: column; text-align: center; gap: 30px; align-items: center; }
+  .titulo-sub-sobre, .tec-sobre { width: 100%; justify-content: center; }
 }
 
+@media (max-width: 768px) {
+  .menu-toggle { display: block; position: absolute; right: 20px; top: 20px; }
   .ancoras {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
+    position: absolute; top: 80px; left: 0; width: 100%; background: black;
+    flex-direction: column; align-items: center; gap: 20px; padding: 20px 0; display: none;
   }
+  .ancoras.active { display: flex; }
+  .capa h1 { font-size: 2rem; }
+  .tec-sobre { display: grid; grid-template-columns: repeat(2, 1fr); justify-items: center; }
+  .tec-sobre span { width: 100%; max-width: 130px; height: 90px; }
+  #contatos h1 { font-size: 2rem; }
+  .footer-container { flex-direction: column; text-align: center; }
+}
 
+/* Regras de transição para Desktop */
+@media (min-width: 769px) {
   .container-padrao {
-    flex-direction: column;
+    max-width: 1000px;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
-    text-align: center;
   }
-
+  .projeto-principal { width: 45%; }
+  .projeto-info { text-align: left; }
+  .botoes-wrapper { justify-content: flex-start; }
+  
+  /* Oculta o botão dinâmico no PC */
+  .btn-toggle-desc { display: none; }
+  
+  /* Mostra a descrição fixa lateral no PC */
   .projeto-descricao {
-    margin-top: 20px;
-  }
-
-  .sobre-container {
+    display: flex;
     flex-direction: column;
-    text-align: center;
-    gap: 30px;
+    width: 50%;
   }
-
-  .tec-sobre {
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 15px;
-  }
-
 }
 
-
-@media (max-width:768px){
-
-/* MENU MOBILE */
-
-.menu-toggle{
-  display:block;
-  position:absolute;
-  right:20px;
-  top:20px;
-}
-
-header div{
-  flex-direction:row;
-  justify-content:space-between;
-}
-
-.ancoras{
-  position:absolute;
-  top:80px;
-  left:0;
-  width:100%;
-  background:black;
-  flex-direction:column;
-  align-items:center;
-  gap:20px;
-  padding:20px 0;
-  display:none;
-}
-
-.ancoras.active{
-  display:flex;
-}
-
-
-/* CAPA */
-
-.capa h1{
-  font-size:2rem;
-}
-
-.capa h2{
-  font-size:1.2rem;
-}
-
-.capa p{
-  font-size:0.9rem;
-}
-
-.capa p{
-  font-size:0.9rem;
-  text-align:center;
-  max-width:300px;
-  margin:auto;
-}
-.capa{
-  text-align:center;
-}
-
-
-/* SOBRE */
-
-.sobre-container{
-  flex-direction:column;
-  align-items:center;
-  gap:25px;
-}
-
-.titulo-sub-sobre{
-  width:100%;
-  font-size:0.9rem;
-  padding:18px;
-}
-
-.titulo-sub-sobre p{
-  font-size:0.9rem;
-  text-align:center;
-}
-
-/* TECNOLOGIAS EM COLUNA */
-
-.tec-sobre{
-  width:100%;
-  display:grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap:15px;
-  justify-items:center;
-}
-
-.tec-sobre span{
-  width:100%;
-  max-width:130px;
-  height:90px;
-}
-
-/* PROJETOS */
-
-.container-padrao{
-  flex-direction:column;
-  height:auto;
-}
-
-.container-padrao > div{
-  width:100%;
-  flex-direction:column;
-  align-items:center;
-}
-
-.projeto-descricao{
-  display:none;
-}
-.projeto-descricao p{
-  text-align: justify;
-  line-height: 1.6;
-  max-width: 520px;
-  margin: 0 auto;
-}
-
-/* CONTATOS */
-
-#contatos h1{
-  font-size:2rem;
-}
-
-.social-contato{
-  display:flex;
-  justify-content:center;
-  gap:25px;
-}
-
-.contato-item{
-  gap:8px;
-}
-
-.contato-item a{
-  font-size:2rem;
-}
-
-button{
-  font-size:0.8rem;
-  padding:6px 12px;
-}
-
-/* FOOTER */
-
-.footer-container{
-  flex-direction:column;
-  gap:15px;
-  text-align:center;
-}
-
-}
-
-
-/* Celulares pequenos */
 @media (max-width: 480px) {
-
-  .Anderson {
-    font-size: 22px;
-  }
-
-  .matheus {
-    font-size: 22px;
-  }
-
-  .capa h1 {
-    font-size: 24px;
-  }
-
-  .capa h2 {
-    font-size: 18px;
-  }
-
-  .capa p {
-    font-size: 14px;
-  }
-
-  .projeto-info button {
-    width: 100%;
-  }
-
+  .Anderson, .matheus { font-size: 22px; }
+  .capa h1 { font-size: 24px; }
 }
